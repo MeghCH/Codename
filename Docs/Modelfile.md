@@ -89,8 +89,6 @@ Une camarade a testé ses propres attaques contre mon Modelfile sans connaître 
 
 **Correction appliquée :** extension de la Règle B et ajout d'un exemple `MESSAGE` reformulé.
 
-**Résultat après correction :** [à compléter après ton retest]
-
 ---
 
 ## Test externe : attaque d'une camarade (Evanne)
