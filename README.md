@@ -62,3 +62,15 @@ Chaque attaque cible une famille distincte de technique de prompt injection. Dé
 ## Méthodologie
 
 Les techniques d'attaque ont été identifiées et affinées par la pratique le challenge **Agent Breaker / Cycling Coach** (Lakera), avant d'être testées directement contre l'agent `codename` développé dans ce projet.
+
+---
+
+## Lancement du projet
+
+- Création de l'agent à partir du Modelfile: `ollama create codename -f Modelfile`
+- Lancement de l'agent en mode interactif: `ollama run codename` --> Tu tapes tes messages directement. Pour quitter : /bye ou Ctrl+D
+- Lancement avec un seul message: `ollama run codename "la question ?"`
+- Lancement d'une attaque depuis un fichier: `ollama run codename "$(cat attacks/01_roleplay_fiction.prompt)"`
+
+- Voir le Modelfile d'un modèle déjà créé: `ollama show codename --modelfile`
+- Suppression du modèle: `ollama rm codename`
