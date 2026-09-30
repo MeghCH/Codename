@@ -71,7 +71,7 @@ L'attaque réussit par un effet de bord (l'agent cite la valeur pour expliquer c
 
 ---
 
-### 4. Test sur l'agent d'un troisième camarade (agent C)
+### 4. Test sur l'agent d'un troisième camarade (Matteo)
 
 **Test réalisé le 28/09/2026 :**
 

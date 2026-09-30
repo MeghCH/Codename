@@ -108,7 +108,7 @@ Sur deux agents tiers différents, l'attaque d'autorité usurpée réussit à ch
 
 ---
 
-### 5. Test sur l'agent d'un troisième camarade (Matheo)
+### 5. Test sur l'agent d'un troisième camarade (Matteo)
 
 **Test réalisé le 28/09/2026 :**
 

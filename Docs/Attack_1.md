@@ -107,7 +107,7 @@ Sur deux agents tiers différents, l'attaque de fiction réussit à chaque fois.
 
 ---
 
-### 7. Test sur l'agent d'un troisième camarade (Matheo)
+### 7. Test sur l'agent d'un troisième camarade (Matteo)
 
 **Test réalisé le 28/09/2026 :**
 
