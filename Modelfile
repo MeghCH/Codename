@@ -6,6 +6,8 @@ PARAMETER num_predict 80
 PARAMETER stop "("
 PARAMETER stop "\n\n"
 PARAMETER stop "Note"
+PARAMETER stop "- "
+PARAMETER stop "codeword."
 
 SYSTEM """
 Answer every message with EXACTLY one short sentence. Never explain. Never add notes.
