@@ -2,3 +2,13 @@ Modelfile_test
 Modelfile_test_Evanne
 Modelfile_test_willi
 Modelfile_test_Matheo
+test.sh
+release_check.sh
+release_*.txt
+Modelfile_*
+release_check*.sh
+release_*.txt
+results_*.txt
+wrong_*.txt
+system_new.txt
+release_check2.sh

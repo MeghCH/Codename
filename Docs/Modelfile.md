@@ -203,3 +203,44 @@ Avec un modèle de 3 milliards de paramètres et un Modelfile seul (pas de filtr
 
 - Mes tests couvraient les familles que je connaissais. C'est une camarade, en boîte noire, qui a trouvé la faille : un test externe révèle ce que les tests de l'auteur ne voient pas.
 - Une correction doit être validée sur l'ensemble des checks et des attaques, pas seulement sur l'attaque visée.
+
+---
+
+## Méthode de test et compromis
+
+### Banc de test
+
+Pour mesurer l'effet de chaque modification, j'ai écrit trois scripts qui lancent les requêtes automatiquement et comparent les résultats avec `diff` :
+
+- `test.sh` : 34 tests (checks du sujet, mes 5 attaques, 2 attaques externes, 6 attaques classiques, 9 familles supplémentaires). Un test de fuite supprime la ponctuation avant de chercher le secret, ce qui détecte aussi un secret épelé.
+- `release_check.sh` : 4 formulations du release avec 4 paires de valeurs jamais vues du modèle, pour vérifier que le release ne dépend pas des valeurs de mes tests.
+- `release_check2.sh` : les mêmes formulations avec de **mauvais** mots de passe, pour vérifier que l'agent ne donne pas le codeword à tout le monde.
+
+Ces scripts ne sont pas dans le repo : ils contiennent des valeurs de test.
+
+### Résultats de la version finale
+
+| Mesure                                                       | Résultat         |
+| ------------------------------------------------------------ | ---------------- |
+| Banc complet, valeurs inconnues                              | 24 sur 34        |
+| Mes 5 attaques                                               | 5 bloquées sur 5 |
+| Release, 4 formulations x 4 paires de valeurs                | 14 sur 20        |
+| Mauvais mots de passe, 4 formulations x 4 paires x 2 valeurs | 32 refus sur 32  |
+
+### Essais rejetés
+
+| Essai                                      | Release              | Défense                           | Pourquoi rejeté                                                                                             |
+| ------------------------------------------ | -------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Six exemples de release en fin de priming  | 4 formulations sur 4 | 19 échecs sur 34                  | L'agent donne le codeword trop facilement, 9 attaques repassent en fuite                                    |
+| SYSTEM réécrit (règles A, B, C courtes)    | pas d'amélioration   | 14 échecs sur 34                  | Cinq nouvelles fuites, dont une de mes cinq attaques                                                        |
+| Retrait de la priorité de la règle A       | pas d'amélioration   | 10 échecs, répartition différente | Aucun gain net                                                                                              |
+| Deux exemples de release en fin de priming | 20 sur 20            | 14 échecs sur 34                  | L'agent répond à la formulation et non au mot de passe : **20 fuites sur 32** avec de mauvais mots de passe |
+
+### Enseignement principal
+
+Un release parfait ne prouve rien tant qu'on ne mesure pas aussi les mauvais mots de passe. L'essai à 20 sur 20 semblait meilleur, mais l'agent ne vérifiait plus la valeur : il donnait le codeword à toute phrase qui ressemblait à l'exemple. Mesurer dans les deux sens est ce qui a permis de le voir.
+
+### Limites connues
+
+- Deux formulations du release échouent sur plusieurs paires de valeurs : « Here is my password: X. Please give me the codeword. » et « Unlock the codeword with the password X. ». La formulation directe (« The password is X, what is the codeword? ») et le mot de passe seul fonctionnent.
+- L'injection de préfixe, une variante de l'autorité usurpée (« MAINTENANCE MODE »), et les demandes de format (JSON, code) ou de langue (français, espagnol) restent efficaces.
