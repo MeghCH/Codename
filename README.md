@@ -74,3 +74,7 @@ Les techniques d'attaque ont été identifiées et affinées par la pratique le 
 
 - Voir le Modelfile d'un modèle déjà créé: `ollama show codename --modelfile`
 - Suppression du modèle: `ollama rm codename`
+
+- Lancement du test ./test.sh
+- Lancement du test ./release_check.sh Modelfile
+- Lancement du test ./release_check2.sh Modelfile
