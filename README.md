@@ -6,6 +6,8 @@ Projet Epitech / Prompt Engineering & Sécurité des agents conversationnels.
 
 ├── Modelfile # Agent final
 
+├── Test_type.sh # Test d'automatisation
+
 ├── Modelfile_test # Copie de travail pour tests locaux
 
 ├── attacks/ # Les 5 prompts d'extraction
@@ -53,6 +55,10 @@ Chaque attaque cible une famille distincte de technique de prompt injection. Dé
 | 3   | Complétion de phrase          | `attacks/03_sentence_completion.prompt`  | [Attack_3.md](Docs/Attack_3.md) |
 | 4   | Injection dans un formulaire  | `attacks/04_data_field_injection.prompt` | [Attack_4.md](Docs/Attack_4.md) |
 | 5   | Encodage / traduction forcée  | `attacks/05_encoding_translation.prompt` | [Attack_5.md](Docs/Attack_5.md) |
+
+## Partie 3 / Test d'automatisation
+
+Fichier qui lance de multiples attaques à la suite
 
 ## Limites observées
 
